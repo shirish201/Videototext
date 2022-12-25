@@ -81,22 +81,18 @@ def main():
                     write_vtt(result["segments"], file=vtt)
                 
                 print(temp_file_vtt[1])
-                ### Save VTT file
-                # subtitle = temp_file_2[1]
-                # output_video = ('Output/'+input_video.split(".")[0]).replace("/Raw","") + "_subtitled_today"
+    
+                temp_file_10 = tempfile.mkstemp(suffix='.mp4')
+                print(temp_file_10[1])
                 
-                # temp_file_3 = tempfile.mkstemp(suffix='.mp4')
-                # print(temp_file_3[1])
-
-                # temp_file_10 = tempfile.mkstemp(suffix='.mp4')
-                # print(temp_file_10[1])
-                
-                # ### Output the video file
-                # os.system(f"""
-                # ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]},
-                # """)
-                # with open(os.path.join(temp_file_10[1]),"wb") as f:
-                #     st.download_button('Download video', data=f, mime="video/mp4")  # Defaults to 'text/plain'
+                ### Output the video file
+                os.system(f"""
+                ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]}
+                """)
+                with open(temp_file_10[1]) as f:
+                    st.download_button('Download video', 
+                                       data=f, 
+                                       mime="video/mp4")  # Defaults to 'text/plain'
                     
                 # if temp_file_10[1] is not None:
                 #     video_file = open(temp_file_10[1], 'rb')
