@@ -89,7 +89,7 @@ def main():
                 temp_file_10 = tempfile.mkstemp(suffix='.mp4')                
                 ### Output the video file
                 os.system(f"""
-                ffmpeg -i {temp_file_1[1]}  -vf {temp_file_10[1]},
+                ffmpeg -i {temp_file_1[1]} -y -vf {temp_file_10[1]},
                 """)
                 
                 if temp_file_10[1] is not None:
