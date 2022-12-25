@@ -17,6 +17,7 @@ import tempfile
 
 ## Upload the video File and convert to mp3
 
+@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
 def video2mp3(video_file, output_ext="mp3"):
     print("here1")
     videoclip = VideoFileClip(video_file)
@@ -92,7 +93,9 @@ def main():
                 os.system(f"""
                 ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]},
                 """)
-                
+                with open(temp_file_10[1]) as f:
+                    st.download_button('Download video', f)  # Defaults to 'text/plain'
+                    
                 if temp_file_10[1] is not None:
                     video_file = open(temp_file_10[1], 'rb')
                     video_bytes = video_file.read()
