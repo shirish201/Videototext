@@ -89,15 +89,15 @@ def main():
                 os.system(f"""
                 ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]}
                 """)
-                with open(temp_file_10[1]) as f:
-                    st.download_button('Download video', 
-                                       data=f, 
-                                       mime="video/mp4")  # Defaults to 'text/plain'
+                # with open(os.path.join(temp_file_10[1]),"wb") as f:
+                #     st.download_button('Download video', 
+                #                        data=f, 
+                #                        mime="video/mp4")  # Defaults to 'text/plain'
                     
-                # if temp_file_10[1] is not None:
-                #     video_file = open(temp_file_10[1], 'rb')
-                #     video_bytes = video_file.read()
-                #     st.video(video_bytes)
+                if temp_file_10[1] is not None:
+                    video_file = open(temp_file_10[1], 'rb')
+                    video_bytes = video_file.read()
+                    st.video(video_bytes)
                  
                     
                 
