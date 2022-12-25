@@ -92,7 +92,8 @@ def main():
                 with open(os.path.join(temp_file_10[1]), "rb") as f:
                     st.download_button('Download video', 
                                         data=f, 
-                                        mime="video/mp4")  # Defaults to 'text/plain'
+                                        file_name = "sample.mp4",
+                                        mime="video/mp4")  
                     
                 if temp_file_10[1] is not None:
                     video_file = open(temp_file_10[1], 'rb')
