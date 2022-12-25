@@ -27,7 +27,7 @@ def video2mp3(video_file, output_ext="mp3"):
     return temp_file_2[1]
     
 
-#@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
+@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
 def process_audio(filename):
     #checkpoint = torch.load("Model_Small/small.pt")
     #dims = ModelDimensions(**checkpoint["dims"])
@@ -89,7 +89,7 @@ def main():
                 temp_file_10 = tempfile.mkstemp(suffix='.mp4')                
                 ### Output the video file
                 os.system(f"""
-                ffmpeg -i {input_video} -vf -y "subtitles= {temp_file_vtt[1]}:force_style='Alignment=0,Fontname=DejaVu Serif,OutlineColour=&H40000000,BorderStyle=3,MarginL=140,MarginV=25,MarginR=120'" {temp_file_10[1]},
+                ffmpeg -i {temp_file_1[1]} -vf -y "subtitles= {temp_file_vtt[1]}:force_style='Alignment=0,Fontname=DejaVu Serif,OutlineColour=&H40000000,BorderStyle=3,MarginL=140,MarginV=25,MarginR=120'" {temp_file_10[1]},
                 """)
                 
                 video_file = open(temp_file_10[1], 'rb')
