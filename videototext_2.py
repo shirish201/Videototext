@@ -29,7 +29,7 @@ def video2mp3(video_file, output_ext="mp3"):
 
 @st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
 def process_audio(filename):
-    checkpoint = torch.load("Model/medium.pt")
+    checkpoint = torch.load("Model/small.pt")
     dims = ModelDimensions(**checkpoint["dims"])
     model = Whisper(dims)
     print("here")
