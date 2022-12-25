@@ -89,9 +89,10 @@ def main():
                 os.system(f"""
                 ffmpeg -i {temp_file_1[1]} -y -vf "subtitles= {temp_file_vtt[1]}:force_style='Alignment=0,Fontname=DejaVu Serif,OutlineColour=&H40000000,BorderStyle=3,MarginL=140,MarginV=25,MarginR=120'" {temp_file_10[1]}
                 """)
-                with open(os.path.join(temp_file_10[1]), "wb") as f:
+                with open(os.path.join(temp_file_10[1]), "rb") as f:
                     st.download_button('Download video', 
                                         data=f, 
+                                        filename = "sample.mp4",
                                         mime="video/mp4")  # Defaults to 'text/plain'
                     
                 if temp_file_10[1] is not None:
