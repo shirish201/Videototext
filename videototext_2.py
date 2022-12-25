@@ -88,13 +88,14 @@ def main():
                 # print(temp_file_3[1])
 
                 temp_file_10 = tempfile.mkstemp(suffix='.mp4')
+                print(temp_file_10[1])
                 
                 ### Output the video file
                 os.system(f"""
                 ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]},
                 """)
                 with open(temp_file_10[1]) as f:
-                    st.download_button('Download video', f)  # Defaults to 'text/plain'
+                    st.download_button('Download video', data=f, mime="video/mp4")  # Defaults to 'text/plain'
                     
                 if temp_file_10[1] is not None:
                     video_file = open(temp_file_10[1], 'rb')
