@@ -1,0 +1,5 @@
+pandas==1.3.5
+torch==1.12.1
+streamlit==1.13.0
+moviepy==1.0.3
+whisper @ git+https://github.com/openai/whisper.git@8cf36f3508c9acd341a45eb2364239a3d81458b9
