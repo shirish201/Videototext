@@ -27,7 +27,7 @@ def video2mp3(video_file, output_ext="mp3"):
     return temp_file_2[1]
     
 
-@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
+#@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
 def process_audio(filename):
     checkpoint = torch.load("Model_Small/small.pt")
     dims = ModelDimensions(**checkpoint["dims"])
