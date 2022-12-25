@@ -80,7 +80,7 @@ def main():
                 with open(temp_file_vtt[1], "w") as vtt:
                     write_vtt(result["segments"], file=vtt)
                 
-                print(temp_file_vtt[1])
+                print(data_subtitle)
                 ### Save VTT file
                 # subtitle = temp_file_2[1]
                 # output_video = ('Output/'+input_video.split(".")[0]).replace("/Raw","") + "_subtitled_today"
