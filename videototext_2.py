@@ -86,10 +86,11 @@ def main():
                 # temp_file_3 = tempfile.mkstemp(suffix='.mp4')
                 # print(temp_file_3[1])
 
-                temp_file_10 = tempfile.mkstemp(suffix='.mp4')                
+                temp_file_10 = tempfile.mkstemp(suffix='.mp4')
+                
                 ### Output the video file
                 os.system(f"""
-                ffmpeg -i {temp_file_1[1]} -y -vf {temp_file_10[1]},
+                ffmpeg -i {temp_file_1[1]} -y {temp_file_10[1]},
                 """)
                 
                 if temp_file_10[1] is not None:
